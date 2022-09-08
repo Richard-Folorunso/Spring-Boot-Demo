@@ -1,5 +1,7 @@
 package dev.folorunso.controllers;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import dev.folorunso.models.User;
 import dev.folorunso.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserController {
 
     private final UserService userService;
